@@ -36,7 +36,11 @@ function prevSong() {
 }
 
 function loadSong(index) {
-  // Add load song implementation
+  const song = songs[index];
+  document.getElementById("songName").textContent = song.title;
+  document.getElementById("authorName").textContent = song.author;
+  audio.src = song.src;
+  audio.load();
 }
 
 function updateProgressBar() {
