@@ -24,7 +24,7 @@ body {
 	color: #E5E7EB;
 }
 
-.author {
+.author-name {
 	font-size: 0.75rem;
 	color: #121826a6;
 }
@@ -70,21 +70,20 @@ main {
 	border-radius: 15px;
 }
 
-.song-name {
-	font-size: 1.5rem;
-	color: #E5E7EB;
-}
-
-.author {
-  font-size: 1rem;
-  color: #121826a6;
-}
-
 .progress-bar {
-	width: 100%;
-	height: 4px;
-	background-color: #121826;
-	border-radius: 2px;
+  width: 100%;
+  height: 5px;
+  border-radius: 20px;
+  background-color: white;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.progress {
+  width: 0%;
+  height: 5px;
+  border-radius: 20px;
+  background-color: #c93b76;
 }
 
 .controls {
