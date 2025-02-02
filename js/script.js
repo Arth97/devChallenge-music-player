@@ -22,13 +22,21 @@ document.getElementById("playButton").addEventListener("click", playPause);
 document.getElementById("prevButton").addEventListener("click", prevSong);
 document.getElementById("nextButton").addEventListener("click", nextSong);
 // audio.addEventListener("timeupdate", updateProgressBar);
+document.getElementById("playButton").addEventListener("click", playPause());
 
 function prevSong() {
   // Add previous button implementation
 }
 
 function playPause() {
-  audio.play()
+  // audio.play()
+  if (audio.paused) {
+    audio.play();
+    console.log("El audio está en reproducción");
+} else {
+    audio.pause();
+    console.log("El audio está en pausa");
+}
 }
 
 function nextSong() {
