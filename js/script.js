@@ -18,29 +18,23 @@ const songs = [
 let currentSongIndex = 0;
 const audio = new Audio(songs[currentSongIndex].src);
 
-document.getElementById("playButton").addEventListener("click", playPause);
-document.getElementById("prevButton").addEventListener("click", prevSong);
-document.getElementById("nextButton").addEventListener("click", nextSong);
+
 // audio.addEventListener("timeupdate", updateProgressBar);
-document.getElementById("playButton").addEventListener("click", playPause());
 
 function prevSong() {
-  // Add previous button implementation
+  currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+  loadSong(currentSongIndex);
+  audio.play();
 }
 
 function playPause() {
-  // audio.play()
-  if (audio.paused) {
-    audio.play();
-    console.log("El audio está en reproducción");
-} else {
-    audio.pause();
-    console.log("El audio está en pausa");
-}
+  audio.paused ? audio.play() : audio.pause();
 }
 
 function nextSong() {
-  // Add next button implementation
+  currentSongIndex = (currentSongIndex + 1) % songs.length;
+  loadSong(currentSongIndex);
+  audio.play();
 }
 
 function loadSong(index) {
@@ -51,7 +45,7 @@ function loadSong(index) {
   document.getElementById("authorName").textContent = song.author;
   audio.src = song.src;
   audio.load();
-  playPause();
+  // playPause();
 }
 
 function updateProgressBar() {
