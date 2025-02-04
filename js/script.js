@@ -19,7 +19,7 @@ let currentSongIndex = 0;
 const audio = new Audio(songs[currentSongIndex].src);
 
 
-// audio.addEventListener("timeupdate", updateProgressBar);
+audio.addEventListener("timeupdate", updateProgressBar);
 
 function prevSong() {
   currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
@@ -49,12 +49,16 @@ function loadSong(index) {
 }
 
 function updateProgressBar() {
-  // Handle when progress bar is updated
-}
+  const progressBar = document.getElementById("progressBarId");
+  if (audio.duration) {
+    progressBar.value = (audio.currentTime / audio.duration) * 100;
+  }}
 
-// document.getElementById("progressBar").addEventListener("input", function () {
-//   audio.currentTime = (this.value / 100) * audio.duration;
-// });
+document.getElementById("progressBarId").addEventListener("input", function () {
+  audio.currentTime = (this.value / 100) * audio.duration;
+  console.log("audio.currentTime", audio.currentTime)
+});
+
 
 // Initial load
 loadSong(currentSongIndex);
