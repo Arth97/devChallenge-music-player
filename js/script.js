@@ -28,7 +28,18 @@ function prevSong() {
 }
 
 function playPause() {
-  audio.paused ? audio.play() : audio.pause();
+  const playButton = document.getElementById("playButton");
+  const pauseButton = document.getElementById("pauseButton");
+
+  if (audio.paused) {
+      audio.play();
+      playButton.style.display = "none";
+      pauseButton.style.display = "flex";
+  } else {
+      audio.pause();
+      playButton.style.display = "flex";
+      pauseButton.style.display = "none";
+  }
 }
 
 function nextSong() {
