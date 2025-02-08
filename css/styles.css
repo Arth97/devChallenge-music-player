@@ -26,18 +26,20 @@ body {
 
 .author-name {
 	font-size: 0.75rem;
-	color: #121826a6;
+	color: #4D5562;
 }
 
 .small-text {
 	font-size: 0.625rem;
+	color: #4D5562;
 }
 
 /* Add some styles for body*/
 body {
 	min-height: 100vh;
 	margin: 0 auto;
-	background: #020617;
+	background: url('../images/gradient-bg.jpg') center center no-repeat;
+	background-size: cover;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -55,7 +57,7 @@ main {
 .card {
 	width: 345px;
 	height: 520px;
-	background-color: #212936;
+	background-color: #121826a6;
 	border-radius: 15px;
 	padding: 20px;
 	display: flex;
@@ -87,7 +89,7 @@ input[type="range"] {
 
 input[type="range"]::-webkit-slider-runnable-track {
   height: 5px;
-  background: #ccc;
+  background: #E5E7EB;
   border-radius: 15px;
 	filter: drop-shadow(0px 8px 16px rgba(201, 59, 118, 0.25));
 }
