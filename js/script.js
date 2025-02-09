@@ -8,7 +8,7 @@ const songs = [
     img: "./images/cover-1.jpg",
   },
   {
-    title: "Forest Lullaby2",
+    title: "Forest Lullaby",
     author: "Lesfm",
     src: "./audio/forest-lullaby.mp3",
     img: "./images/cover-2.jpg",
@@ -17,6 +17,7 @@ const songs = [
 
 let currentSongIndex = 0;
 const audio = new Audio(songs[currentSongIndex].src);
+console.log("audio", audio);
 
 
 audio.addEventListener("timeupdate", updateProgressBar);
@@ -50,25 +51,30 @@ function nextSong() {
 
 function loadSong(index) {
   const song = songs[index];
-  console.log("song", song)
+  audio.src = song.src;
+  audio.load();
   document.getElementById("coverId").src = song.img;
   document.getElementById("songName").textContent = song.title;
   document.getElementById("authorName").textContent = song.author;
-  audio.src = song.src;
-  audio.load();
   // playPause();
 }
 
 function updateProgressBar() {
+  const currentTime = document.getElementById("currentTime");
+  const duration = document.getElementById("duration");
   const progressBar = document.getElementById("progressBarId");
   if (audio.duration) {
     progressBar.value = (audio.currentTime / audio.duration) * 100;
-  }}
+    currentTime.textContent = formatTime(audio.currentTime);
+    duration.textContent = formatTime(audio.duration);
+  }
+}
 
-document.getElementById("progressBarId").addEventListener("input", function () {
-  audio.currentTime = (this.value / 100) * audio.duration;
-  console.log("audio.currentTime", audio.currentTime)
-});
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+}
 
 
 // Initial load
