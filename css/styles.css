@@ -67,8 +67,10 @@ main {
 }
 
 .cover {
-	width: 310px;
-	height: 290px;
+	/* width: 310px;
+	height: 290px; */
+	width: 100%;
+  height: auto;
 	border-radius: 15px;
 }
 
@@ -141,10 +143,4 @@ input[type="range"]::-webkit-slider-thumb {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-
-
-@media screen and (min-width: 720px) {
-
 }
